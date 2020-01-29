@@ -1,5 +1,6 @@
 // To select all svg elements on this page
 const svg = d3.select('svg');
+
 // set an inline style
 //svg.style('background-color', 'red')
 // Lets start making a face
@@ -7,7 +8,7 @@ const height = parseFloat(svg.attr('height'));
 const width = parseFloat(svg.attr('width'));
 
 
-// creating a group element to inline the arc to the center of the face
+// Creating a group element to inline the arc to the center of the face
 const g = svg.append('g')
           .attr('transform', `translate(${width/2}, ${height/2})`);
 const circle = g.append('circle');
