@@ -8,7 +8,7 @@ const height = parseFloat(svg.attr('height'));
 const width = parseFloat(svg.attr('width'));
 
 
-// Creating a group element to inline the arc to the center of the face
+// Creating a group element to inline the arc at the center of the face
 const g = svg.append('g')
           .attr('transform', `translate(${width/2}, ${height/2})`);
 const circle = g.append('circle');
