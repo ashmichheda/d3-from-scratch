@@ -3,7 +3,7 @@ const svg = d3.select('svg');
 
 // set an inline style
 //svg.style('background-color', 'red')
-// Lets start making a face
+// Start making smiley face with animation
 const height = parseFloat(svg.attr('height'));
 const width = parseFloat(svg.attr('width'));
 
