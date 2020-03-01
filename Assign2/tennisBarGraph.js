@@ -86,6 +86,7 @@ function onMouseOver(d, i){
     d3.select(this)
       .transition()
       .duration(400)
+      .attr('opacity', 0.5)
       .attr('width', x.bandwidth() + 5)
       .attr("y", function(d) { return y(d.total) - 10; })
       .attr("height", function(d) { return height - y(d.total) + 10; });
@@ -99,7 +100,7 @@ function onMouseOver(d, i){
          return y(d.total) - 15;
      })
      .text(function() {
-         return [d.total + 'aces hit in '+ d.year];  // Value of the text
+         return [d.total + ' aces in '+ d.year];  // Value of the text
      });
 }
 
@@ -108,6 +109,7 @@ function onMouseOut(d, i){
         d3.select(this)
           .transition()
           .duration(400)
+          .attr('opacity', 1)
           .attr('width', x.bandwidth())
           .attr("y", function(d) { return y(d.total); })
           .attr("height", function(d) { return height - y(d.total); });
