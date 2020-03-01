@@ -1,5 +1,5 @@
 svg{
-  background-color: antiquewhite;
+  background-color: #C4D2E1;
   margin-left: auto;
   margin-right: auto;
   display : block;
@@ -8,8 +8,26 @@ svg{
 body {
 	margin: auto;
 	width: 650px;
-	font: 17px arial;
+	font: 17px;
   color: purple;
+  font-family: calibri;
+}
+div#container {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  background-color: #2F4A6D;
+}
+
+
+line {
+  stroke: gray;
+}
+
+line#limit {
+  stroke: #FF5E33;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
 }
 
 .bar {
@@ -18,4 +36,16 @@ body {
 
 .highlight{
   fill: orange;
+}
+
+#b1{
+  border-radius: 5px;
+  font-size: 1.25 rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+#b1:hover{
+  background: #085AB1;
 }

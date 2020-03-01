@@ -34,11 +34,12 @@ var svg = d3.select("svg"),
      .attr("transform", "translate(0," + height + ")")
      .call(d3.axisBottom(x))
      .append("text")
-     .attr("y", height - 250)
+     .attr("y", height - 200)
      .attr("x", width - 200)
      .attr("font-size", "17px")
      .attr("text-anchor", "end")
-     .attr("stroke", "black")
+     .attr("fill", "black")
+     .attr("font-family", "calibri")
      .text("Year");
 
 
@@ -53,7 +54,8 @@ var svg = d3.select("svg"),
      .attr("dy", "-5.1em")
      .attr("font-size", "17px")
      .attr("text-anchor", "middle")
-     .attr("stroke", "black")
+     .attr("fill", "black")
+     .attr("font-family", "calibri")
      .text("Total points Won");
 
      g.selectAll(".bar")
@@ -74,6 +76,9 @@ var svg = d3.select("svg"),
       .attr("x", 50)
       .attr("y", 50)
       .attr("font-size", "20px")
+      .attr("font-weight", "bold")
+      .attr("text-align", "center")
+      .attr("font-family", "calibri")
       .text("Performance Analysis of Rafael Nadal (10 Years)")
 
     });
@@ -86,8 +91,8 @@ function onMouseOver(d, i){
     d3.select(this)
       .transition()
       .duration(400)
-      .attr('opacity', 0.5)
-      .attr('width', x.bandwidth() + 5)
+      .attr('opacity', 0.6)
+      .attr('width', x.bandwidth() + 10)
       .attr("y", function(d) { return y(d.total) - 10; })
       .attr("height", function(d) { return height - y(d.total) + 10; });
 
@@ -102,26 +107,34 @@ function onMouseOver(d, i){
          return y(d.total) - 15;
      })
      .text(function() {
-         return [d.total + ' aces in '+ d.year];  // Value of the text
+         return [d.total + ' points in '+ d.year];  // Value of the text
      });
+     g.append('line')
+        .attr('id', 'limit')
+        .attr('x1', 0)
+        .attr('y1', y(d.total) - 10)
+        .attr('x2', width)
+        .attr('y2', y(d.total) - 10)
+        .attr('stroke', 'red')
 }
 
 function onMouseOut(d, i){
   d3.select(this).attr('class', 'bar');
         d3.select(this)
           .transition()
-          .duration(400)
-          .attr('opacity', 1)
+          .duration(600)
+          .attr('opacity', 2)
           .attr('width', x.bandwidth())
           .attr("y", function(d) { return y(d.total); })
           .attr("height", function(d) { return height - y(d.total); });
 
         d3.selectAll('.val')
           .remove()
+  g.selectAll('#limit').remove()
 }
 
 b1.onclick = function () {
-    //document.getElementById('txt').remove();
+
     this.remove();
     var totalAces = 0;
     d3.csv("data.csv", function(error, data) {
@@ -135,6 +148,7 @@ b1.onclick = function () {
     for(var i = 0; i<data.length; i++){
       totalAces += data[i].total;
     }
-    document.getElementById("info").innerHTML = totalAces+" aces hit by Nadal from 2004 to 2014";
+    var value = document.getElementById("info").innerHTML = totalAces+" points won by Nadal from 2004 to 2014";
+    value.sytle = red;
   });
 };
