@@ -5,6 +5,13 @@ svg{
   display : block;
 }
 
+body {
+	margin: auto;
+	width: 650px;
+	font: 17px arial;
+  color: purple;
+}
+
 .bar {
   fill: steelblue;
 }

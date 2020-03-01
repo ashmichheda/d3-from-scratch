@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>D3JS Interactive Bar Graph</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
@@ -14,7 +14,13 @@
   <body>
 
     <!-- Title -->
-    <h1 style="text-align:center;">Interactive Visualization </h1>
+    <h3 style="text-align:center;">Dynamic Bar Chart</h3>
+    <br/>
+    <div class="container" style="width: fit-content;">
+      <button type="button" id="b1" class="btn btn-info" width="400px">Summary Data</button>
+      <p id = "info"></p>
+    </div>
+    <br/>
     <svg width="600" height="500"></svg>
     <!-- D3 code for bar graphs -->
     <script type="text/javascript" src = "tennisBarGraph.js"></script>

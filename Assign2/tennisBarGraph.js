@@ -93,6 +93,8 @@ function onMouseOver(d, i){
 
     g.append("text")
      .attr('class', 'val') // add class to text label
+     .attr('fill', 'purple')
+     .attr('font-weight', 'bold')
      .attr('x', function() {
          return x(d.year);
      })
@@ -117,3 +119,22 @@ function onMouseOut(d, i){
         d3.selectAll('.val')
           .remove()
 }
+
+b1.onclick = function () {
+    //document.getElementById('txt').remove();
+    this.remove();
+    var totalAces = 0;
+    d3.csv("data.csv", function(error, data) {
+        if (error) {
+            console.log("Error: Loading the data!")
+        }
+    data.forEach(function(d) {
+      d.total = +d.total;
+      d.year = d.year;
+    });
+    for(var i = 0; i<data.length; i++){
+      totalAces += data[i].total;
+    }
+    document.getElementById("info").innerHTML = totalAces+" aces hit by Nadal from 2004 to 2014";
+  });
+};
