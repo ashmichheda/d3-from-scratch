@@ -99,7 +99,7 @@ function onMouseOver(d, i){
          return y(d.total) - 15;
      })
      .text(function() {
-         return [d.total];  // Value of the text
+         return [d.total + 'aces hit by Rafael Nadal in '+ d.year];  // Value of the text
      });
 }
 
