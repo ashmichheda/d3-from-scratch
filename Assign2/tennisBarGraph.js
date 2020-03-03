@@ -81,6 +81,8 @@ var svg = d3.select("svg"),
       .attr("font-family", "calibri")
       .text("Performance Analysis of Rafael Nadal (10 Years)")
 
+
+
     });
 
 // adding animation and interaction
@@ -149,6 +151,6 @@ b1.onclick = function () {
       totalAces += data[i].total;
     }
     var value = document.getElementById("info").innerHTML = totalAces+" points won by Nadal from 2004 to 2014";
-    value.sytle = red;
+
   });
 };
